@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="container">
       <section className={styles.hero}>
-        <h1>Hi, I'm Elif Keskin</h1>
+        <h1>Hi, I&apos;m Elif Keskin</h1>
         <p>I am a software developer. It's nice to meet you!</p>
       </section>
 
