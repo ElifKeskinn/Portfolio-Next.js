@@ -1,5 +1,4 @@
-// app/projects/page.js
-/*'use client'
+'use client'
 
 import { useEffect, useState } from 'react'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
@@ -43,9 +42,5 @@ const Projects = () => {
     </div>
   )
 }
-
-export default <Projects></Projects>*/
-
-
 
 
