@@ -1,16 +1,10 @@
-'use client'
-import styles from './Footer.module.css'
-import dynamic from 'next/dynamic';
-
-const FaInstagram = dynamic(() => import('react-icons/fa').then(mod => mod.FaInstagram), { ssr: false });
-const FaGithub = dynamic(() => import('react-icons/fa').then(mod => mod.FaGithub), { ssr: false });
-const FaLinkedin = dynamic(() => import('react-icons/fa').then(mod => mod.FaLinkedin), { ssr: false });
-const FaEnvelope = dynamic(() => import('react-icons/fa').then(mod => mod.FaEnvelope), { ssr: false });
+'use client';
+import { FaInstagram, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-
       <div className={styles.social}>
         <a href="https://www.instagram.com/elf_keskn/" target="_blank" rel="noopener noreferrer">
           <FaInstagram size={30} />
@@ -26,10 +20,8 @@ const Footer = () => {
         </a>
       </div>
       <p>© {new Date().getFullYear()} Elif Keskin. All rights reserved.</p>
-
-
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
