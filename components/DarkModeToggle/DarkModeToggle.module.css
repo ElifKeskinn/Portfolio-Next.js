@@ -1,0 +1,13 @@
+.toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--nav-text);
+    transition: color 0.3s;
+  }
+  
+  .toggle:hover {
+    color: var(--primary-color);
+  }
+  
