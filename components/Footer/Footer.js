@@ -5,7 +5,16 @@ import styles from './Footer.module.css';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
+      <div className={styles.thankYou}>
+        <h2>
+          <span className={styles.thank}>thank</span>
+          <span className={styles.you}> you</span>
+          <span className={styles.thank}>!</span>
+        </h2>
+      </div>
+
       <div className={styles.social}>
+        <p>If you think I can help you, contact me.</p>
         <a href="https://www.instagram.com/elf_keskn/" target="_blank" rel="noopener noreferrer">
           <FaInstagram size={30} />
         </a>

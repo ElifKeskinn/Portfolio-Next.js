@@ -21,9 +21,9 @@ export default function Home() {
   return (
     <div className="container">
       <section className={styles.hero}>
-      <div className={styles.sliderContainer}>
+        <div className={styles.sliderContainer}>
           <Slider {...settings}>
-          <div className={styles.photobg}>
+            <div className={styles.photobg}>
               <img src="/images/photo3.png" alt="Elif Keskin3" className={styles.photo} />
             </div>
             <div className={styles.photobg}>
@@ -32,11 +32,12 @@ export default function Home() {
             <div className={styles.photobg}>
               <img src="/images/photo2.png" alt="Elif Keskin2" className={styles.photo} />
             </div>
-         
+
           </Slider>
         </div>
         <h1>Hi, I&apos;m Elif Keskin</h1>
         <p>I am a software developer. It&apos;s nice to meet you!</p>
+        <p>I hope you&apos;re happy to meet me too.</p>
       </section>
 
       <section className={styles.featured}>
@@ -58,10 +59,15 @@ export default function Home() {
             {/* <Link href="/projects" className={styles.link}>Details</Link> */}
           </div>
           <div className={styles.card}>
+            <h3 className={styles.header}>Memory Game</h3>
+            <p>Memory Game is a classic matching game developed using React.js. It includes both single-player and multiplayer modes, with various themes such as numbers and animal icons. [<a href="https://memory-flame-mu.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.link}>Click to Play</a>]</p>
+          </div>
+          <div className={styles.card}>
             <h3 className={styles.header}>Adventure Ally</h3>
             <p>A backend application developed using .Net Core to simplify user vacation planning by pulling data from multiple websites.</p>
             {/* <Link href="/projects" className={styles.link}>Details</Link> */}
           </div>
+
         </div>
       </section>
     </div>

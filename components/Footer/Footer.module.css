@@ -26,3 +26,30 @@
   margin-top: 20px;
   font-size: 16px;
 }
+
+.thankYou {
+  margin-bottom: 30px;
+  
+}
+
+.thankYou h2 {
+  font-size: 46px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.thank {
+  color: #19241e;
+}
+
+.you {
+  color: #b4daa7;
+  font-size: 55px;
+}
+
+.thankYou p {
+  font-size: 18px;
+  color: var(--text-color);
+  opacity: 0.8;
+}
