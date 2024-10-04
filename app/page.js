@@ -1,10 +1,40 @@
-import Link from 'next/link'
-import styles from './page.module.css'
+'use client';
+import Link from 'next/link';
+import styles from './page.module.css';
+
+import dynamic from 'next/dynamic';
+
+const Slider = dynamic(() => import('react-slick'), { ssr: false });
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
   return (
     <div className="container">
       <section className={styles.hero}>
+      <div className={styles.sliderContainer}>
+          <Slider {...settings}>
+          <div className={styles.photobg}>
+              <img src="/images/photo3.png" alt="Elif Keskin3" className={styles.photo} />
+            </div>
+            <div className={styles.photobg}>
+              <img src="/images/photo1.jpg" alt="Elif Keskin1" className={styles.photo} />
+            </div>
+            <div className={styles.photobg}>
+              <img src="/images/photo2.png" alt="Elif Keskin2" className={styles.photo} />
+            </div>
+         
+          </Slider>
+        </div>
         <h1>Hi, I&apos;m Elif Keskin</h1>
         <p>I am a software developer. It&apos;s nice to meet you!</p>
       </section>

@@ -1,35 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
+.container {
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+.photobg{
+  background-color: transparent;
+}
+
 .hero {
   text-align: center;
   padding: 100px 20px;
-  background-color: #d6d4d4;
-  border-radius: 8px;
+  background-color: #F6F4C3;
+  border-radius: 12px;
   margin-bottom: 40px;
-  
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.sliderContainer {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.photo {
+  border-radius: 50%;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
 }
 
 .hero h1 {
   font-size: 48px;
   margin-bottom: 20px;
-  color: #333;
+  color: #4A785E;
 }
 
 .hero p {
   font-size: 20px;
-  color: #666;
+  color: #44AA77;
   margin-bottom: 30px;
-}
-
-.button {
-  padding: 12px 24px;
-  background-color: #0070f3;
-  color: #fff;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.button:hover {
-  background-color: #005bb5;
 }
 
 .featured {
@@ -39,38 +52,24 @@
 .featured h2 {
   text-align: center;
   margin-bottom: 20px;
-  
-}
-
-.header{
-  color: #333;
+  color: #4A785E;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
 .card {
-  border: 1px solid #ddd;
+  border: 1px solid #B4DAA7;
   padding: 20px;
-  border-radius: 8px;
-  background-color: #d5d2d2;
+  border-radius: 12px;
+  background-color: #FFFFFF;
   color: #333;
   transition: box-shadow 0.3s;
 }
 
 .card:hover {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.link {
-  color: #0070f3;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.link:hover {
-  text-decoration: underline;
 }
