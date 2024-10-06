@@ -117,7 +117,7 @@ const About = () => {
         </a>
         &nbsp;
         <a href="/CVElifKes.pdf" target="_blank" rel="noopener noreferrer" className={styles.downloadButton}>
-          Viwe Resume
+          View Resume
         </a>
       </section>
     </div>
