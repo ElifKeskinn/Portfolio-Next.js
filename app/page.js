@@ -2,11 +2,11 @@
 import Link from 'next/link';
 import styles from './page.module.css';
 import dynamic from 'next/dynamic';
+import Butterflies from '@/components/Butterflies/Butterflies';
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Butterflies from '@/components/Butterflies/Butterflies';
 
 export default function Home() {
   const settings = {
