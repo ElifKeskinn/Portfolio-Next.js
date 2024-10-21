@@ -3,7 +3,9 @@ import styles from './About.module.css'
 
 const About = () => {
   return (
+
     <div className="container">
+      
       <h2>About Me</h2>
 
       <section className={styles.profile}>
