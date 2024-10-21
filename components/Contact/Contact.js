@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Contact.module.css';
 
 const Contact = () => {
@@ -7,9 +7,11 @@ const Contact = () => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
+  const [isSending, setIsSending] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSending(true); 
 
     try {
       const response = await fetch('/api/contact', {
@@ -24,15 +26,19 @@ const Contact = () => {
 
       if (data.success) {
         setStatus('Email sent successfully!');
-        // Formu temizle
         setEmail('');
         setSubject('');
         setMessage('');
+        setTimeout(() => {
+          setStatus(''); 
+        }, 5000);
       } else {
         setStatus('Error sending email.');
       }
     } catch (error) {
       setStatus('Error sending email.');
+    } finally {
+      setIsSending(false); 
     }
   };
 
@@ -49,6 +55,7 @@ const Contact = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          disabled={isSending} 
         />
 
         <label htmlFor="subject" className={styles.label}>Subject</label>
@@ -60,6 +67,7 @@ const Contact = () => {
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
           required
+          disabled={isSending} 
         />
 
         <label htmlFor="message" className={styles.label}>Message</label>
@@ -71,9 +79,12 @@ const Contact = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
+          disabled={isSending} 
         />
 
-        <button type="submit" className={styles.button}>Send Email</button>
+        <button type="submit" className={styles.button} disabled={isSending}>
+          {isSending ? 'Sending...' : 'Send Email'}
+        </button>
       </form>
       {status && <p>{status}</p>}
     </div>

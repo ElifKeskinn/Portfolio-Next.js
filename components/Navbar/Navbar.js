@@ -11,7 +11,7 @@ const Navbar = () => {
                     <Link href="/" className={styles.link}>Home</Link>
                     <Link href="/about" className={styles.link}>About Me</Link>
                     <Link href="https://github.com/ElifKeskinn?tab=repositories" className={styles.link}>Projects</Link>
-                    <Link href="/contact" className={styles.link}>Contact(Soon)</Link>
+                    <Link href="/contact" className={styles.link}>Contact</Link>
                     <DarkModeToggle />
                 </div>
             </div>
