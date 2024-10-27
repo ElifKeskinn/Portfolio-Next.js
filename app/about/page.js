@@ -87,10 +87,9 @@ const About = () => {
 
       <section className={styles.personal}>
         <h3>Personal Information</h3>
-        <p><strong>Doğum Tarihi:</strong> September 8, 2003</p>
-        <p><strong>Doğum Yeri:</strong> Elazığ</p>
-        <p><strong>Cinsiyet:</strong> Female</p>
-        <p><strong>Uyruk:</strong> Turkish</p>
+        <p><strong>Birthday:</strong> September 8, 2003</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Nationality:</strong> Turkish</p>
       </section>
 
       <section className={styles.hobbies}>
@@ -98,10 +97,11 @@ const About = () => {
         <ul>
           <li>Programming</li>
           <li>Reading scientific essays</li>
+          <li>Camping and discovering nature</li>
           <li>Learning new languages</li>
           <li>Playing guitar and violin</li>
           <li>Court Tennis</li>
-          <li>Camping and discovering nature</li>
+         
         </ul>
       </section>
 
