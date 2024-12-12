@@ -1,147 +1,148 @@
 .butterfliesContainer {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 1000;
-  overflow: hidden;
-}
-
-.butterfly {
-  position: absolute;
-  animation: fly 30s linear infinite;
-}
-
-.butterflyImage {
-  width: auto;
-  height: auto;
-  transform-origin: center;
-  animation: flutter 2s ease-in-out infinite;
-}
-
-@keyframes fly {
-  0% {
-    left: -5%;
-    top: 100%;
-    transform: translateY(0) scale(0.8);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
   }
-  20% {
-    left: 25%;
-    top: 80%;
-    transform: translateY(-20px) scale(1);
+  
+  .butterfly {
+    position: absolute;
+    animation: fly 30s linear infinite;
   }
-  40% {
-    left: 45%;
-    top: 40%;
-    transform: translateY(0) scale(0.9);
+  
+  .butterflyImage {
+    width: auto;
+    height: auto;
+    transform-origin: center;
+    animation: flutter 2s ease-in-out infinite;
   }
-  60% {
-    left: 65%;
-    top: 20%;
-    transform: translateY(-20px) scale(1.1);
+  
+  @keyframes fly {
+    0% {
+      left: -5%;
+      top: 100%;
+      transform: translateY(0) scale(0.8);
+    }
+    20% {
+      left: 25%;
+      top: 80%;
+      transform: translateY(-20px) scale(1);
+    }
+    40% {
+      left: 45%;
+      top: 40%;
+      transform: translateY(0) scale(0.9);
+    }
+    60% {
+      left: 65%;
+      top: 20%;
+      transform: translateY(-20px) scale(1.1);
+    }
+    80% {
+      left: 85%;
+      top: 60%;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      left: 105%;
+      top: 100%;
+      transform: translateY(-20px) scale(0.8);
+    }
   }
-  80% {
-    left: 85%;
-    top: 60%;
-    transform: translateY(0) scale(1);
+  
+  @keyframes flutter {
+    0%, 100% {
+      transform: rotate(-8deg) scale(1);
+    }
+    50% {
+      transform: rotate(8deg) scale(1.1);
+    }
   }
-  100% {
-    left: 105%;
-    top: 100%;
-    transform: translateY(-20px) scale(0.8);
+  
+  .butterflyImage {
+    animation: flutter 1.5s ease-in-out infinite;
   }
-}
-
-@keyframes flutter {
-  0%, 100% {
-    transform: rotate(-8deg) scale(1);
+  
+  /* Her kelebek için farklı uçuş yolları */
+  .butterfly:nth-child(1) {
+    animation: fly1 15s linear infinite;
   }
-  50% {
-    transform: rotate(8deg) scale(1.1);
+  
+  .butterfly:nth-child(2) {
+    animation: fly2 18s linear infinite;
+    animation-delay: -5s;
   }
-}
-
-.butterflyImage {
-  animation: flutter 1.5s ease-in-out infinite;
-}
-
-/* Her kelebek için farklı uçuş yolları */
-.butterfly:nth-child(1) {
-  animation: fly1 15s linear infinite;
-}
-
-.butterfly:nth-child(2) {
-  animation: fly2 18s linear infinite;
-  animation-delay: -5s;
-}
-
-.butterfly:nth-child(3) {
-  animation: fly3 20s linear infinite;
-  animation-delay: -10s;
-}
-
-.butterfly:nth-child(4) {
-  animation: fly4 18s linear infinite;
-  animation-delay: -15s;
-}
-
-.butterfly:nth-child(5) {
-  animation: fly5 17s linear infinite;
-  animation-delay: -8s;
-}
-
-
-@keyframes fly1 {
-  0% {
-    left: -5%;
-    top: 90%;
+  
+  .butterfly:nth-child(3) {
+    animation: fly3 20s linear infinite;
+    animation-delay: -10s;
   }
-  100% {
-    left: 105%;
-    top: 10%;
+  
+  .butterfly:nth-child(4) {
+    animation: fly4 18s linear infinite;
+    animation-delay: -15s;
   }
-}
-
-@keyframes fly2 {
-  0% {
-    left: -5%;
-    top: 70%;
+  
+  .butterfly:nth-child(5) {
+    animation: fly5 17s linear infinite;
+    animation-delay: -8s;
   }
-  100% {
-    left: 105%;
-    top: 30%;
+  
+  
+  @keyframes fly1 {
+    0% {
+      left: -5%;
+      top: 90%;
+    }
+    100% {
+      left: 105%;
+      top: 10%;
+    }
   }
-}
-
-@keyframes fly3 {
-  0% {
-    left: -5%;
-    top: 50%;
+  
+  @keyframes fly2 {
+    0% {
+      left: -5%;
+      top: 70%;
+    }
+    100% {
+      left: 105%;
+      top: 30%;
+    }
   }
-  100% {
-    left: 105%;
-    top: 50%;
+  
+  @keyframes fly3 {
+    0% {
+      left: -5%;
+      top: 50%;
+    }
+    100% {
+      left: 105%;
+      top: 50%;
+    }
   }
-}
-
-@keyframes fly4 {
-  0% {
-    left: -5%;
-    top: 30%;
+  
+  @keyframes fly4 {
+    0% {
+      left: -5%;
+      top: 30%;
+    }
+    100% {
+      left: 105%;
+      top: 70%;
+    }
   }
-  100% {
-    left: 105%;
-    top: 70%;
+  
+  @keyframes fly5 {
+    0% {
+      left: -5%;
+      top: 10%;
+    }
+    100% {
+      left: 105%;
+      top: 90%;
+    }
   }
-}
-
-@keyframes fly5 {
-  0% {
-    left: -5%;
-    top: 10%;
-  }
-  100% {
-    left: 105%;
-    top: 90%;
-  }
-}
+  
