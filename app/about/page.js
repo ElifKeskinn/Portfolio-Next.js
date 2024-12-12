@@ -31,7 +31,7 @@ const About = () => {
         </h3>
         <div className={styles.job}>
           <h4>Full Stack Developer</h4>
-          <p><strong>Oct 2024 - Present</strong></p>
+          <p><strong>Oct 2024 </strong></p>
           <p>Akdeniz University, Antalya, Turkey</p>
           <p>
             I develop backend systems with ASP.NET and create dynamic frontend interfaces using PHP. 
