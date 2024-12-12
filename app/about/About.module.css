@@ -17,19 +17,155 @@
   margin-bottom: 20px;
 }
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
+  position: relative;
+}
+
+.container::before {
+  content: '<about>';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  font-family: var(--font-geist-mono);
+  color: var(--primary-color);
+  opacity: 0.3;
+  font-size: 14px;
+}
+
+.container::after {
+  content: '</about>';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  font-family: var(--font-geist-mono);
+  color: var(--primary-color);
+  opacity: 0.3;
+  font-size: 14px;
 }
 
 .section {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
   margin-bottom: 30px;
+  border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(var(--primary-color-rgb), 0.03) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.section:hover::before {
+  opacity: 1;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .heading {
-  font-weight: 600;
+  font-size: 1.8em;
   color: var(--primary-color);
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.heading::before {
+  content: '';
+  width: 40px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.section:hover .heading::before {
+  width: 60px;
+}
+
+.job, .school, .reference {
+  background: rgba(var(--primary-color-rgb), 0.03);
+  border-left: 4px solid var(--primary-color);
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 0 12px 12px 0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.job::after, .school::after, .reference::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 0;
+  width: 4px;
+  height: 0;
+  background: var(--secondary-color);
+  transition: height 0
+}
+
+.skills ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.skills li {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: rgba(var(--primary-color-rgb), 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-color);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.skills li:hover::before {
+  transform: scaleY(1);
+}
+
+.skills li:hover {
+  transform: translateX(10px);
+  background: rgba(var(--primary-color-rgb), 0.1);
 }
 
 .cvDownload {
@@ -66,4 +202,187 @@
 
 .downloadButton:hover {
   background-color: var(--secondary-color);
+}
+
+.icon {
+  color: var(--primary-color);
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Scroll reveal efekti için */
+@media (prefers-reduced-motion: no-preference) {
+  .section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile p, .job p, .school p {
+  position: relative;
+  padding-left: 20px;
+  margin: 15px 0;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.profile p strong, .job h4, .school h4 {
+  color: var(--primary-color);
+  font-size: 1.1em;
+  display: inline-block;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.profile p strong::after, .job h4::after, .school h4::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.profile p:hover strong::after, 
+.job:hover h4::after, 
+.school:hover h4::after {
+  width: 100%;
+}
+
+.job, .school {
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  background: rgba(var(--primary-color-rgb), 0.03);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  padding: 0;
+}
+
+.skills li {
+  background: rgba(var(--primary-color-rgb), 0.03);
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills li::before {
+  content: '▹';
+  color: var(--primary-color);
+  font-size: 1.2em;
+}
+
+.languages p, .certificates p {
+  padding: 12px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background: rgba(var(--primary-color-rgb), 0.03);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.languages p::before, .certificates p::before {
+  content: '•';
+  color: var(--primary-color);
+  font-size: 1.5em;
+}
+
+.hobbies ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 0;
+}
+
+.hobbies li {
+  padding: 15px;
+  background: rgba(var(--primary-color-rgb), 0.03);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Hover efektleri */
+.job:hover, 
+.school:hover, 
+.languages p:hover, 
+.certificates p:hover,
+.hobbies li:hover,
+.skills li:hover {
+  transform: translateX(10px);
+  background: rgba(var(--primary-color-rgb), 0.08);
+  box-shadow: 0 4px 15px rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* Timeline efekti için */
+.job::before,
+.school::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-color);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: top;
+}
+
+.job:hover::before,
+.school:hover::before {
+  transform: scaleY(1);
+}
+
+.skillBar {
+  position: relative;
+  height: 8px;
+  background: rgba(var(--primary-color-rgb), 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.skillProgress {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 4px;
+  transform-origin: left;
+  animation: fillProgress 1.5s ease-out forwards;
+}
+
+@keyframes fillProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }

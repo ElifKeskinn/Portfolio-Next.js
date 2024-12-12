@@ -7,6 +7,7 @@
   --nav-text: #ffffff;
   --footer-background: #4a785e;
   --footer-text: #ffffff;
+  --primary-color-rgb: 68, 170, 119; /* RGB values for #44aa77 */
 }
 
 [data-theme="dark"] {

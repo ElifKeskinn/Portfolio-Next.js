@@ -22,11 +22,21 @@ const About = () => {
       <section className={styles.employment}>
         <h3>Employment</h3>
         <div className={styles.job}>
+          <h4>Full Stack Developer</h4>
+          <p><strong>Oct 2024 - Present</strong></p>
+          <p>Akdeniz University, Antalya, Turkey</p>
+          <p>
+            I develop backend systems with ASP.NET and create dynamic frontend interfaces using PHP. 
+            I manage SQL databases and handle API development to improve university workflows and efficiency.
+          </p>
+        </div>
+        <div className={styles.job}>
           <h4>Software Developer Intern</h4>
           <p><strong>Jul 2024 - Sep 2024</strong></p>
           <p>OBSS Technology, Istanbul, Turkey</p>
           <p>
-            I developed web applications using React, Node.js, and MongoDB technologies. Gained experience in building backend APIs, managing databases, and designing user-friendly interfaces.
+            I developed web applications using React, Node.js, and MongoDB technologies. 
+            Gained experience in building backend APIs, managing databases, and designing user-friendly interfaces.
           </p>
         </div>
       </section>
@@ -50,7 +60,7 @@ const About = () => {
 
         <div className={styles.school}>
           <h4>AcunMedya Akademi, Istanbul, Turkey</h4>
-          <p>React Front-End Development Expert Bootcamp (Present)</p>
+          <p>React Front-End Development Expert Bootcamp</p>
         </div>
 
       </section>
@@ -79,10 +89,11 @@ const About = () => {
 
       <section className={styles.certificates}>
         <h3>Certificates</h3>
-        <p>Harvard Language Schools, Elazığ - C2 level English graduation certificate</p>
+        <p>Advanced Front-end Development Certificate (AcunMedya Academy Nişantaşı University) </p>
+        <p>Harvard Language Schools - C2 level English graduation certificate</p>
         <p>Red Hat System Administration I (RH124)</p>
         <p>Advanced Web Development Certificate (Udemy)</p>
-        <p>Akdeniz University Technology and Entrepreneurship Summit (ATGZ) participation certificate. Served as a coordination member during the 3-day summit.</p>
+        <p>Akdeniz University Technology and Entrepreneurship Summit (ATGZ) participation certificate</p>
       </section>
 
       <section className={styles.personal}>
@@ -107,9 +118,16 @@ const About = () => {
 
       <section className={styles.references}>
         <h3>References</h3>
-        <p><strong>Orhan Ekici</strong></p>
-        <p>AcunMedya Academy, Istanbul, Turkey</p>
-        <a href="mailto:orhanekici@gmail.com">orhanekici@gmail.com</a>
+        <div className={styles.reference}>
+          <p><strong>Orhan Ekici</strong></p>
+          <p>AcunMedya Academy, Istanbul, Turkey</p>
+          <a href="mailto:orhanekici@gmail.com">orhanekici@gmail.com</a>
+        </div>
+        <div className={styles.reference}>
+          <p><strong>Furkan Özay</strong></p>
+          <p>AcunMedya Academy, Istanbul, Turkey</p>
+          <a href="mailto:furkanczay@gmail.com">furkanczay@gmail.com</a>
+        </div>
       </section>
 
       <section className={styles.cvDownload}>

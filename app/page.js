@@ -3,38 +3,56 @@ import Link from 'next/link';
 import styles from './page.module.css';
 import dynamic from 'next/dynamic';
 import Butterflies from '@/components/Butterflies/Butterflies';
+import { useEffect } from 'react';
 
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
+  useEffect(() => {
+    const cards = document.querySelectorAll(`.${styles.card3d}`);
+    const carousel = document.querySelector(`.${styles.carousel3d}`);
+
+    let angle = 0;
+    let rotating = true;
+
+    // Auto rotation
+    setInterval(() => {
+      if (rotating) {
+        angle -= 120;
+        carousel.style.transform = `rotateY(${angle}deg)`;
+      }
+    }, 3000);
+
+    // Stop rotation on hover
+    carousel.addEventListener('mouseenter', () => rotating = false);
+    carousel.addEventListener('mouseleave', () => rotating = true);
+
+    // Manual rotation on click
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const currentRotation = parseInt(card.dataset.rotation);
+        angle = -currentRotation;
+        carousel.style.transform = `rotateY(${angle}deg)`;
+      });
+    });
+  }, []);
+
   return (
     <div className="container">
       <Butterflies />
       <section className={styles.hero}>
-        <div className={styles.sliderContainer}>
-          <Slider {...settings}>
-            <div className={styles.photobg}>
-              <img src="/images/photo3.png" alt="Elif Keskin3" className={styles.photo} />
-            </div>
-            <div className={styles.photobg}>
-              <img src="/images/photo1.jpg" alt="Elif Keskin1" className={styles.photo} />
-            </div>
-            <div className={styles.photobg}>
-              <img src="/images/photo2.png" alt="Elif Keskin2" className={styles.photo} />
-            </div>
-
-          </Slider>
+        <div className={styles.carousel3d}>
+          <div className={styles.card3d} data-rotation="0">
+            <img src="/images/photo3.png" alt="Elif Keskin3" />
+          </div>
+          <div className={styles.card3d} data-rotation="120">
+            <img src="/images/photo1.jpg" alt="Elif Keskin1" />
+          </div>
+          <div className={styles.card3d} data-rotation="240">
+            <img src="/images/photo2.png" alt="Elif Keskin2" />
+          </div>
         </div>
         <h1>Hi, I&apos;m Elif Keskin</h1>
         <p>I am a software developer. It&apos;s nice to meet you!</p>
