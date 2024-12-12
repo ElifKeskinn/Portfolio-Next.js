@@ -1,15 +1,49 @@
 'use client';
 import Link from 'next/link';
 import styles from './page.module.css';
-import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import Butterflies from '@/components/Butterflies/Butterflies';
 import { useEffect } from 'react';
 
-const Slider = dynamic(() => import('react-slick'), { ssr: false });
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 export default function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.3 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: { 
+      scale: 1, 
+      opacity: 1,
+      transition: { duration: 0.5 }
+    },
+    hover: { 
+      scale: 1.05,
+      transition: { duration: 0.2 }
+    }
+  };
+
+  const carouselVariants = {
+    hover: { 
+      rotateY: 180,
+      transition: { duration: 0.8 }
+    }
+  };
+
+  // carousel için özel animasyon tanımları
   useEffect(() => {
     const cards = document.querySelectorAll(`.${styles.card3d}`);
     const carousel = document.querySelector(`.${styles.carousel3d}`);
@@ -17,19 +51,19 @@ export default function Home() {
     let angle = 0;
     let rotating = true;
 
-    // Auto rotation
-    setInterval(() => {
+    // Otomatik döndürme
+    const interval = setInterval(() => {
       if (rotating) {
         angle -= 120;
         carousel.style.transform = `rotateY(${angle}deg)`;
       }
     }, 3000);
 
-    // Stop rotation on hover
+    // Hover durumunda dönmeyi durdur
     carousel.addEventListener('mouseenter', () => rotating = false);
     carousel.addEventListener('mouseleave', () => rotating = true);
 
-    // Manual rotation on click
+    // Tıklama ile manuel döndürme
     cards.forEach(card => {
       card.addEventListener('click', () => {
         const currentRotation = parseInt(card.dataset.rotation);
@@ -37,58 +71,121 @@ export default function Home() {
         carousel.style.transform = `rotateY(${angle}deg)`;
       });
     });
+
+    return () => {
+      clearInterval(interval);
+      carousel.removeEventListener('mouseenter', () => rotating = false);
+      carousel.removeEventListener('mouseleave', () => rotating = true);
+    };
   }, []);
 
   return (
     <div className="container">
       <Butterflies />
-      <section className={styles.hero}>
-        <div className={styles.carousel3d}>
-          <div className={styles.card3d} data-rotation="0">
-            <img src="/images/photo3.png" alt="Elif Keskin3" />
+      <motion.section 
+        className={styles.hero}
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <motion.div 
+          className={styles.carousel3d}
+          whileHover="hover"
+          variants={carouselVariants}
+        >
+          <div className={styles.card3d}>
+            <motion.img 
+              src="/images/photo3.png" 
+              alt="Elif Keskin3"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            />
           </div>
-          <div className={styles.card3d} data-rotation="120">
-            <img src="/images/photo1.jpg" alt="Elif Keskin1" />
+          <div className={styles.card3d}>
+            <motion.img 
+              src="/images/photo1.jpg" 
+              alt="Elif Keskin1"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            />
           </div>
-          <div className={styles.card3d} data-rotation="240">
-            <img src="/images/photo2.png" alt="Elif Keskin2" />
+          <div className={styles.card3d}>
+            <motion.img 
+              src="/images/photo2.png" 
+              alt="Elif Keskin2"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            />
           </div>
-        </div>
-        <h1>Hi, I&apos;m Elif Keskin</h1>
-        <p>I am a software developer. It&apos;s nice to meet you!</p>
-        <p>I hope you&apos;re happy to meet me too.</p>
-      </section>
+        </motion.div>
+        <motion.h1 variants={itemVariants}>
+          Hi, I&apos;m Elif Keskin
+        </motion.h1>
+        <motion.p variants={itemVariants}>
+          I am a software developer. It&apos;s nice to meet you!
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          I hope you&apos;re happy to meet me too.
+        </motion.p>
+      </motion.section>
 
-      <section className={styles.featured}>
-        <h2>Featured Projects</h2>
+      <motion.section 
+        className={styles.featured}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+      >
+        <motion.h2 variants={itemVariants}>Featured Projects</motion.h2>
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <h3 className={styles.header}>Contact Form Management System</h3>
-            <p>A full-stack web application developed using React.js, Node.js, MongoDB, and Bootstrap.</p>
-            {/* <Link href="/projects" className={styles.link}>Details</Link> */}
-          </div>
-          <div className={styles.card}>
-            <h3 className={styles.header}>Fighter Aircraft Status System</h3>
-            <p>A real-time desktop application developed using React.js, CSS, WebSocket, and Electron.</p>
-            {/* <Link href="/projects" className={styles.link}>Details</Link> */}
-          </div>
-          <div className={styles.card}>
-            <h3 className={styles.header}>Spider Solitaire Game</h3>
-            <p>A game with multiple features designed to enhance user experience, developed using React.js and CSS.</p>
-            {/* <Link href="/projects" className={styles.link}>Details</Link> */}
-          </div>
-          <div className={styles.card}>
-            <h3 className={styles.header}>Memory Game</h3>
-            <p>Memory Game is a classic matching game developed using React.js. It includes both single-player and multiplayer modes, with various themes such as numbers and animal icons. [<a href="https://memory-flame-mu.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.link}>Click to Play</a>]</p>
-          </div>
-          <div className={styles.card}>
-            <h3 className={styles.header}>Adventure Ally</h3>
-            <p>A backend application developed using .Net Core to simplify user vacation planning by pulling data from multiple websites.</p>
-            {/* <Link href="/projects" className={styles.link}>Details</Link> */}
-          </div>
-
+          {[
+            {
+              title: "Contact Form Management System",
+              description: "A full-stack web application developed using React.js, Node.js, MongoDB, and Bootstrap."
+            },
+            {
+              title: "Fighter Aircraft Status System",
+              description: "A real-time desktop application developed using React.js, CSS, WebSocket, and Electron."
+            },
+            {
+              title: "Spider Solitaire Game",
+              description: "A game with multiple features designed to enhance user experience, developed using React.js and CSS."
+            },
+            {
+              title: "Memory Game",
+              description: "Memory Game is a classic matching game developed using React.js. It includes both single-player and multiplayer modes, with various themes such as numbers and animal icons.",
+              link: "https://memory-flame-mu.vercel.app/"
+            },
+            {
+              title: "Adventure Ally",
+              description: "A backend application developed using .Net Core to simplify user vacation planning by pulling data from multiple websites."
+            }
+          ].map((project, index) => (
+            <motion.div
+              key={index}
+              className={styles.card}
+              variants={cardVariants}
+              whileHover="hover"
+              custom={index}
+            >
+              <h3 className={styles.header}>{project.title}</h3>
+              <p>{project.description}</p>
+              {project.link && (
+                <motion.a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.link}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Click to Play
+                </motion.a>
+              )}
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </motion.section>
     </div>
-  )
+  );
 }
