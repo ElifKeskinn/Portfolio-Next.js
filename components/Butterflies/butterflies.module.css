@@ -1,41 +1,51 @@
-.gifContainer {
+.butterfliesContainer {
+  position: fixed;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  pointer-events: none;
+  z-index: 1000;
 }
 
-.butterflyGif {
-  max-width: 100%;
-  height: auto;
-}
 .butterfly {
-  position: fixed; /* Sayfa üzerinde hareket eden eleman */
-  z-index: 1000; /* Diğer öğelerin üstünde görünmesini sağlar */
-  animation: fly 10s linear infinite; /* Hareket animasyonu */
+  position: absolute;
+  animation: fly 20s linear infinite;
 }
 
-.butterflyGif {
-  width: 50px; /* GIF boyutunu ayarlayabilirsin */
+.butterflyImage {
+  width: auto;
   height: auto;
+  transform-origin: center;
+  animation: flutter 2s ease-in-out infinite;
 }
 
 @keyframes fly {
   0% {
-    transform: translate(0, 0) rotate(0deg);
+    left: -10%;
+    top: 80%;
   }
   25% {
-    transform: translate(100px, -100px) rotate(15deg);
+    left: 30%;
+    top: 50%;
   }
   50% {
-    transform: translate(-100px, 100px) rotate(-15deg);
+    left: 50%;
+    top: 20%;
   }
   75% {
-    transform: translate(150px, -50px) rotate(10deg);
+    left: 70%;
+    top: 50%;
   }
   100% {
-    transform: translate(0, 0) rotate(0deg);
+    left: 110%;
+    top: 80%;
+  }
+}
+
+@keyframes flutter {
+  0%, 100% {
+    transform: rotate(-10deg) scale(1);
+  }
+  50% {
+    transform: rotate(10deg) scale(1.1);
   }
 }
