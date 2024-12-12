@@ -10,59 +10,36 @@
 
 .hero {
   text-align: center;
-  padding: 100px 20px;
-  background-color: #F6F4C3;
-  border-radius: 12px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-  padding-top: 80px;
-  padding-bottom: 60px;
-}
-
-.sliderContainer {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto 30px;
-}
-
-.photo {
-  border-radius: 50%;
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  object-fit: cover;
+  padding: 50px 0;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #4A785E;
-  animation: float 3s ease-in-out infinite;
+  color: var(--primary-color);
 }
 
 .hero p {
-  font-size: 20px;
-  color: #44AA77;
-  margin-bottom: 30px;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin: 10px 0;
 }
 
 .featured {
-  margin-top: 40px;
+  padding: 50px 0;
 }
 
 .featured h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #4A785E;
+  margin-bottom: 40px;
+  color: var(--primary-color);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 30px;
+  padding: 20px;
 }
 
 .card {
@@ -176,3 +153,45 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
+
+/* Başlık stilleri için genel container */
+.titleContainer {
+  position: relative;
+  margin: 50px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border-left: 5px solid var(--primary-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Ana başlık stili */
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title::before {
+  content: '→';
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+}
+
+/* Her başlık için farklı accent renkleri */
+.education { border-left-color: #ff6b6b; }
+.employment { border-left-color: #4ecdc4; }
+.language { border-left-color: #45b7d1; }
+.skills { border-left-color: #96c93d; }
+.personalInfo { border-left-color: #e056fd; }
+.hobbies { border-left-color: #f9ca24; }
+.references { border-left-color: #686de0; }
+.resume { border-left-color: #6ab04c; }

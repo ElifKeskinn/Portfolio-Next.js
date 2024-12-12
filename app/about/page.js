@@ -1,4 +1,6 @@
 import styles from './About.module.css'
+import { FaUser, FaBriefcase, FaGraduationCap, FaGlobe, FaBolt, 
+         FaInfoCircle, FaBullseye, FaUsers, FaFileAlt, FaMedal } from 'react-icons/fa';
 
 
 const About = () => {
@@ -9,7 +11,10 @@ const About = () => {
       <h2>About Me</h2>
 
       <section className={styles.profile}>
-        <h3 className={styles.heading}>Profile</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.profileTitle}`}>
+          <FaUser style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          Profile
+        </h3>
         <p><strong>Name:</strong> Elif Keskin</p>
         <p><strong>Title:</strong> Software Developer</p>
         <p><strong>Email:</strong> <a href="mailto:elif.keskin233@gmail.com">elif.keskin233@gmail.com</a></p>
@@ -20,7 +25,10 @@ const About = () => {
       </section>
 
       <section className={styles.employment}>
-        <h3>Employment</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.employmentTitle}`}>
+          <FaBriefcase style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          Employment
+        </h3>
         <div className={styles.job}>
           <h4>Full Stack Developer</h4>
           <p><strong>Oct 2024 - Present</strong></p>
@@ -42,7 +50,10 @@ const About = () => {
       </section>
 
       <section className={styles.education}>
-        <h3>Education</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.educationTitle}`}>
+          <FaGraduationCap style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          Education
+        </h3>
 
         <div className={styles.school}>
           <h4>Akdeniz University, Antalya</h4>
@@ -67,13 +78,19 @@ const About = () => {
 
 
       <section className={styles.languages}>
-        <h3>Language</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.languageTitle}`}>
+          <FaGlobe style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          Language
+        </h3>
         <p>English (C1)</p>
         <p>Turkish (Native)</p>
       </section>
 
       <section className={styles.skills}>
-        <h3>Skills</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.skillsTitle}`}>
+          <FaBolt style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          Skills
+        </h3>
         <ul>
           <li>Front-End Technologies: React.js, Javascript, HTML, CSS</li>
           <li>Back-end Technologies: Node.js, Next.js, .Net Core, Python, Java</li>
@@ -88,7 +105,10 @@ const About = () => {
       </section>
 
       <section className={styles.certificates}>
-        <h3>Certificates</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.certificatesTitle}`}>
+          <FaMedal style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          Certificates
+        </h3>
         <p>Advanced Front-end Development Certificate (AcunMedya Academy Nişantaşı University) </p>
         <p>Harvard Language Schools - C2 level English graduation certificate</p>
         <p>Red Hat System Administration I (RH124)</p>
@@ -97,14 +117,20 @@ const About = () => {
       </section>
 
       <section className={styles.personal}>
-        <h3>Personal Information</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.personalTitle}`}>
+          <FaInfoCircle style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          Personal Information
+        </h3>
         <p><strong>Birthday:</strong> September 8, 2003</p>
         <p><strong>Gender:</strong> Female</p>
         <p><strong>Nationality:</strong> Turkish</p>
       </section>
 
       <section className={styles.hobbies}>
-        <h3>Hobbies</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.hobbiesTitle}`}>
+          <FaBullseye style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          Hobbies
+        </h3>
         <ul>
           <li>Programming</li>
           <li>Reading scientific essays</li>
@@ -117,7 +143,10 @@ const About = () => {
       </section>
 
       <section className={styles.references}>
-        <h3>References</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.referencesTitle}`}>
+          <FaUsers style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          References
+        </h3>
         <div className={styles.reference}>
           <p><strong>Orhan Ekici</strong></p>
           <p>AcunMedya Academy, Istanbul, Turkey</p>
@@ -131,7 +160,10 @@ const About = () => {
       </section>
 
       <section className={styles.cvDownload}>
-        <h3>Resume (CV)</h3>
+        <h3 className={`${styles.sectionTitle} ${styles.resumeTitle}`}>
+          <FaFileAlt style={{marginRight: '15px', fontSize: '1.8rem'}} />
+          Resume (CV)
+        </h3>
         <a href="/cv.pdf" download className={styles.downloadButton}>
           Download Resume
         </a>

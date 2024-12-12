@@ -1,0 +1,30 @@
+.skillsContainer {
+  padding: 20px 0;
+}
+
+.skillsContainer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillsContainer li {
+  margin: 15px 0;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border-left: 4px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.skillsContainer li:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .skillsContainer li {
+    padding: 12px 15px;
+  }
+} 
