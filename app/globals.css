@@ -8,6 +8,8 @@
   --footer-background: #4a785e;
   --footer-text: #ffffff;
   --primary-color-rgb: 68, 170, 119; /* RGB values for #44aa77 */
+  --font-primary: inherit;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 [data-theme="dark"] {

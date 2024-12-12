@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import styles from './Projects.module.css';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -32,7 +33,14 @@ export default function Projects() {
             }}
           >
             <div className={styles.projectImage}>
-              <img src={project.image} alt={project.title} />
+              <Image 
+                src={project.image}
+                alt={project.title}
+                width={600}
+                height={400}
+                priority={true}
+                className={styles.image}
+              />
             </div>
             <div className={styles.projectInfo}>
               <h3>{project.title}</h3>

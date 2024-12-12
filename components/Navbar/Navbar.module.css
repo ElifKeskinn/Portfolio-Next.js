@@ -25,7 +25,7 @@
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: var(--font-geist-sans);
+  font-family: inherit;
   letter-spacing: 2px;
   text-transform: uppercase;
   background: linear-gradient(
@@ -34,7 +34,9 @@
     var(--secondary-color) 100%
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
   background-size: 200% auto;
   animation: gradient 3s ease infinite;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
