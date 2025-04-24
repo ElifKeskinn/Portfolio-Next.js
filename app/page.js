@@ -81,7 +81,6 @@ export default function Home() {
 
   return (
     <div className="container">
-      <Butterflies />
       <motion.section 
         className={styles.hero}
         initial="hidden"
